@@ -166,7 +166,7 @@ The resulting output shows the Execution Plan, which describes the actions Terra
 
 There is a + next to google_compute_instance.terraform, which means that Terraform will create this resource. Following that are the attributes that will be set. When the value displayed is <computed>, it means that the value won't be known until the resource is created.
 
- ```bash
+ ```shell
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
