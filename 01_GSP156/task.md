@@ -103,7 +103,8 @@ Global options (use these before the subcommand, if any):
 This is a complete configuration that Terraform is ready to apply. The general structure should be intuitive and straightforward.
 
 Once you accept Gemini Code Assist's recommendation, the resulting instance.tf file should resemble the following.
-### Generated file contents: ```
+### Generated file contents: 
+
  ```yaml
 resource "google_compute_instance" "default" {
   project      = "Project ID"
@@ -119,7 +120,8 @@ resource "google_compute_instance" "default" {
     network = "default"
   }
 }
-  ```
+  
+```
 
 The "resource" block in the instance.tf file defines a resource that exists within the infrastructure. A resource might be a physical component such as a VM instance.
 
@@ -128,6 +130,7 @@ The resource block has two strings before opening the block: the resource type a
 Within the resource block itself is the configuration needed for the resource.
 
 In the Cloud Shell Terminal, run the following code to verify that your new file has been added and that there are no other *.tf files in your directory, as Terraform loads all .tf files:
+
 ```bash
 ls
 ```
@@ -139,7 +142,7 @@ Terraform uses a plugin-based architecture to support the numerous infrastructur
 
 ```bash
 terraform init
-  ```
+```
 
 The Google provider plugin is downloaded and installed in a subdirectory of the current working directory, along with various other book keeping files. You will see an "Initializing provider plugins" message. Terraform knows that you're running from a Google project, and it is getting Google resources.
 
@@ -236,7 +239,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 Do you want to perform these actions? Terraform will perform the actions described above. Only 'yes' will be accepted to approve.
 
 Enter a value: 
-  ```
+```
 
 If the plan was created successfully, Terraform now pauses and waits for approval before proceeding. In a production environment, if anything in the Execution Plan seems incorrect or dangerous, it's safe to cancel at this point and no changes have yet been made to your infrastructure.
 
@@ -247,13 +250,12 @@ Terraform has written some data into the terraform.tfstate file. This state file
 
 In Cloud Shell, run the following command to inspect the current state:
 
-
- ```
+```shell
 terraform show
-  ```
+```
 Example output:
 
- ```bash
+```bash
 # google_compute_instance.default:
 resource "google_compute_instance" "default" {
     can_ip_forward       = false
