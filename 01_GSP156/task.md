@@ -252,6 +252,7 @@ In Cloud Shell, run the following command to inspect the current state:
 
 ```shell
 terraform show
+
 ```
 Example output:
 
@@ -277,6 +278,5 @@ resource "google_compute_instance" "default" {
         auto_delete = true
         device_name = "persistent-disk-0"
         source      = "https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-42390cc9da8a4c4b/zones/{{{project_0.default_zone}}}/disks/terraform"
-
-.... 
+ 
 ```
