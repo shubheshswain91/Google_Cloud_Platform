@@ -250,9 +250,8 @@ Terraform has written some data into the terraform.tfstate file. This state file
 
 In Cloud Shell, run the following command to inspect the current state:
 
-```shell
+```
 terraform show
-
 ```
 Example output:
 
