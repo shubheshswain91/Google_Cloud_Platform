@@ -250,7 +250,7 @@ The default Terraform workflow involves creating and managing infrastructure ent
 - Apply the configuration to create your Terraform state and infrastructure.
 
 
-![screenshot](..\Images\docker-1.png)
+![screenshot](\Images\docker-1.png)
 
 After you create infrastructure with Terraform, you can update the configuration and plan and apply those changes. Eventually you will use Terraform to destroy the infrastructure when it is no longer needed. This workflow assumes that Terraform will create an entirely new infrastructure.
 
@@ -266,7 +266,7 @@ Bringing existing infrastructure under Terraform’s control involves five main 
 - Review the Terraform plan to ensure that the configuration matches the expected state and infrastructure.
 - Apply the configuration to update your Terraform state.
 
-![screenshot](..\Images\docker-2.png)
+![screenshot](\Images\docker-2.png)
 
 In this section, first you will create a Docker container with the Docker CLI. Next, you will import it into a new Terraform workspace. Then you will update the container’s configuration using Terraform before finally destroying it when you are done.
 
