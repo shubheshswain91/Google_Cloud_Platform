@@ -11,9 +11,9 @@ Objectives
 
 In this lab, you learn how to perform the following tasks:
 
-- Build, change, and destroy infrastructure with Terraform.
-- Create resource dependencies with Terraform.
-- Provision infrastructure with Terraform.
+1. Infrastructure as Code with Terraform
+   1. Task 1. Build infrastructure
+      1. Terraform block
 
 ## Task 1. Build infrastructure
 
