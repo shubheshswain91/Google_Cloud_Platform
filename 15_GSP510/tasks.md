@@ -85,25 +85,22 @@ Your tasks will include the following:
 
 The new Cymbal Shops e-commerce website will run natively on GKE and the team would like to see your experience working and setting up clusters. In this section, you will need to create a Kubernetes cluster based on a set of configurations provided to run your demo applications on.
 
-1.  Create a GKE cluster named with the following configuration:
+1.  Create a GKE cluster named `hello-world-5v9i` with the following configuration:
 
- Setting | Value |
-| --- | --- |
- **Zone** |  |
- **Release channel** | **Regular** |
- **Cluster version** | 
+
 ```
-1.27.8
+Zone	us-east4-a
+Release channel	Regular
+Cluster version	1.27.8 or newer
+Cluster autoscaler	Enabled
+Number of nodes	3
+Minimum nodes	2
+Maximum nodes	6
 ```
- _or newer_ |
- **Cluster autoscaler** | **Enabled** |
- **Number of nodes** | **3** |
- **Minimum nodes** | **2** |
- **Maximum nodes** | **6** |
 
 ```bash
-gcloud container clusters create hello-world-7bvu \
-  --zone us-east4-c \
+gcloud container clusters create hello-world-5v9i \
+  --zone us-east4-a \
   --release-channel regular \
   --cluster-version latest \
   --enable-autoscaling \
@@ -125,7 +122,7 @@ As part of the e-commerce website strategy, Cymbal Shops would like to start usi
 3.  Download a sample Prometheus app:
 gsutil cp gs://spls/gsp510/prometheus-app.yaml .
 
-![alt text](image-2.png)
+
 
 4.  Update the 
     ```
@@ -147,46 +144,46 @@ gsutil cp gs://spls/gsp510/prometheus-app.yaml .
           ```
           metrics
           ```
-    ![alt text](image-1.png)
+   
 
 5.  Deploy the application onto the namespace on your GKE cluster.
-    ![alt text](image-3.png)
+   
 
 6.  Download the 
     ```
     pod-monitoring.yaml
     ```
      file:
-gsutil cp gs://spls/gsp510/pod-monitoring.yaml .7.  Update the 
+gsutil cp gs://spls/gsp510/pod-monitoring.yaml .
+
+7.  Update the 
     ```
     <todo>
     ```
      sections (lines 18-24) with the following configuration:
     
-      13.   **metadata.name**: 
+      1.    **metadata.name**: 
           ```
           prometheus-test
           ```
           
-      18.   **labels.app.kubernetes.io/name**: 
+      2.    **labels.app.kubernetes.io/name**: 
           ```
           prometheus-test
           ```
           
-      23.   **matchLabels.app**: 
+      3.    **matchLabels.app**: 
           ```
           prometheus-test
           ```
           
-      28.   **endpoints.interval**: 45s
+      4.    **endpoints.interval**: 45s
    
-   ![alt text](image-4.png)
+  ![alt text](image-1.png)
     
-1.  Apply the pod monitoring resource onto the namespace on your GKE cluster.
+8.  Apply the pod monitoring resource onto the namespace on your GKE cluster.
 
-Click **Check my progress** to verify the objective.
 
-Enable Managed Prometheus on the GKE cluster
 
 ## Task 3. Deploy an application onto the GKE cluster
 
@@ -209,9 +206,9 @@ gsutil cp -r gs://spls/gsp510/hello-app/ .2.  Create a deployment onto the names
 
 This error seems to stem from an invalid image name in the manifest that you just deployed. Before you fix the image name, you will create a logs-based metric and alerting policy so that your team can be notified if this happens again in the future.
 
-![alt text](image-5.png)
+![alt text](image-2.png)
 
-
+![alt text](image-3.png)
 
 ## Task 4. Create a logs-based metric and alerting policy
 
@@ -224,12 +221,19 @@ Cymbal Shops would like to set up some logs based metrics and alerting policies 
 
 If the query is correct, upon running you should see the following errors show up in the logs:
 
-Error: InvalidImageName Failed to apply default image tag "<todo>": couldn't parse image reference "<todo>": invalid reference format2.  Create a logs-based metric from this query. For **Metric type**, use **Counter** and for the **Log Metric Name** use 
+```
+Error: InvalidImageName
+Failed to apply default image tag "<todo>": couldn't parse image reference "<todo>": invalid reference format
+
+```
+2.  Create a logs-based metric from this query. For **Metric type**, use **Counter** and for the **Log Metric Name** use 
     ```
     pod-image-errors
     ```
     .
-![alt text](image-6.png)
+
+![alt text](image-4.png)
+
 
 ### Create an alerting policy
 
@@ -273,10 +277,20 @@ Error: InvalidImageName Failed to apply default image tag "<todo>": couldn't par
           ```
           Pod Error Alert
           ```
+![alt text](image-5.png)
 
-Click **Check my progress** to verify the objective.
+![alt text](image-6.png)
 
-Create a logs-based metric and alerting policy
+![alt text](image-7.png)
+
+![alt text](image-8.png) 
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
 
 ## Task 5. Update and re-deploy your app
 
@@ -308,9 +322,7 @@ You should verify that it has deployed correctly with no errors. Your Kubernetes
 
 ![helloweb deployed with no errors](https://cdn.qwiklabs.com/0Uymx3hvEhcCmtQreOMdkRsBj8DPVPz6Qq0jDuyuUPw%3D)
 
-Click **Check my progress** to verify the objective.
 
-Update and re-deploy your app
 
 ## Task 6. Containerize your code and deploy it onto the cluster
 
@@ -357,10 +369,6 @@ hello-app
     
 6.  Navigate to the external load balancer IP address of the service, and you should see the following text returned by the service:
 Hello, world! Version: 2.0.0 Hostname: helloweb-6fc7476576-cvv5f **Note:** It may take a few minutes for the webpage to load.
-
-Click **Check my progress** to verify the objective.
-
-Containerize your code and deploy it onto the cluster
 
 ## Congratulations!
 
